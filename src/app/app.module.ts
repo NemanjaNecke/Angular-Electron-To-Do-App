@@ -12,7 +12,7 @@ import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { AwesomeTooltipDirective } from './tooltip/tooltip.directive';
 import { AwesomeTooltipComponent } from './tooltip/tooltip.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -31,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     OverlayModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { DataService } from './../shared/data.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 import { NgForm } from '@angular/forms';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todos',
@@ -44,5 +45,9 @@ export class TodosComponent implements OnInit {
   onDeleteClicked(todo: Todo) {
     const index = this.todos.indexOf(todo);
     this.dataService.deleteTodo(index);
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
   }
 }

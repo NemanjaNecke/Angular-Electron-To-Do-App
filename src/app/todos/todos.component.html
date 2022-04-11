@@ -38,12 +38,15 @@
 </div>
 <section class="section">
   <div class="container">
-    <article class="todos-list mx-auto">
+    <article class="todos-list mx-auto"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)">
       <app-todo-item *ngFor="let todo of todos"
        [todo]="todo" 
        (todoClicked)="onTodoClicked(todo)"
        (editClicked)="onEditClicked(todo)"
        (deleteClicked)="onDeleteClicked(todo)"
+       cdkDrag
        >
       </app-todo-item>
     </article>
