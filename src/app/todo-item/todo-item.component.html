@@ -2,9 +2,11 @@
         class="todos-item mx-auto"
         [class.completed]="todo.completed"
         (click)="onTodoClicked()"
+        
       >
-        <div class="make-row">
-          <div class="text-check">
+        <div class="make-row"
+        awesomeTooltip="Drag me">
+          <div class="text-check" awesomeTooltip="Check for done">
             <div class="check-box mr-1">
               <i class="material-icons">check</i>
             </div>

@@ -3,6 +3,7 @@ import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angula
 import { EventEmitter } from '@angular/core';
 
 @Component({
+  
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
@@ -16,7 +17,7 @@ export class TodoItemComponent implements OnInit {
   @ViewChild('progress')
   progress!: ElementRef;
   showEdit: boolean = false;
-
+ 
   constructor() { }
 
   
@@ -48,5 +49,6 @@ export class TodoItemComponent implements OnInit {
   onDeleteClicked(){
     this.deleteClicked.emit();
   }
+
 
 }

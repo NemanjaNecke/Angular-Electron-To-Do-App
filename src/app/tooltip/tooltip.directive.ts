@@ -1,8 +1,9 @@
-import { ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { ComponentRef, Directive, ElementRef, HostListener, Input, OnInit, Optional } from '@angular/core';
 import { Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 
 import { AwesomeTooltipComponent } from './tooltip.component';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @Directive({ selector: '[awesomeTooltip]' })
 export class AwesomeTooltipDirective implements OnInit {
@@ -12,7 +13,8 @@ export class AwesomeTooltipDirective implements OnInit {
 
   constructor(private overlay: Overlay,
               private overlayPositionBuilder: OverlayPositionBuilder,
-              private elementRef: ElementRef) {
+              private elementRef: ElementRef,
+              @Optional() private item: TodoItemComponent) { /* this line checks if this component is clicked so the tooltip goes away */
   }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class AwesomeTooltipDirective implements OnInit {
     this.overlayRef = this.overlay.create({ positionStrategy });
   }
 
-  @HostListener('mouseenter')
+  @HostListener('mouseover')
   show() {
     const tooltipRef: ComponentRef<AwesomeTooltipComponent>
       = this.overlayRef.attach(new ComponentPortal(AwesomeTooltipComponent));
@@ -38,6 +40,18 @@ export class AwesomeTooltipDirective implements OnInit {
 
   @HostListener('mouseout')
   hide() {
+  
     this.overlayRef.detach();
   }
+
+
+
+  @HostListener('click',['$event.target'])
+    delete(){
+      if(this.item !== null){
+        this.overlayRef.dispose();
+      }
+      
+    }
+  
 }
