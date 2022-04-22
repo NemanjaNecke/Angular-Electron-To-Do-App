@@ -8,7 +8,7 @@ function createWindow() {
   win = new BrowserWindow({ width: 1600, height: 800 });
   // load the dist folder from Angular
   win.loadURL(
-    url({
+    url.format({
       pathname: path.join(__dirname, '/dist/index.html'), // compiled verion of our app
       protocol: "file:",
       slashes: true
