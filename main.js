@@ -5,7 +5,11 @@ const url = require("url");
 
 let win;
 function createWindow() {
-  win = new BrowserWindow({ width: 1600, height: 800 });
+  win = new BrowserWindow({titleBarStyle: 'hidden',
+  titleBarOverlay:{
+    color: 'rgb(170, 230, 250)',
+    symbolColor: '#000'
+  }, width: 1600, height: 800 });
   // load the dist folder from Angular
   win.loadURL(
     url.format({
