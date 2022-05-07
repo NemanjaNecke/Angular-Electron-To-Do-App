@@ -2,7 +2,7 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
-
+const net = electron.remote.net;
 let win;
 function createWindow() {
   win = new BrowserWindow({titleBarStyle: 'hidden',

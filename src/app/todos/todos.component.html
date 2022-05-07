@@ -3,7 +3,7 @@
 </section>
 <div class="container is-widescreen">
   <div class="add-to-do-box">
-    <form action="" #form="ngForm" (ngSubmit)="onFormSubmit(form)" novalidate>
+   <form action="" #form="ngForm" (ngSubmit)="onFormSubmit(form)" novalidate> 
       <h2 class="is-4 title">New todo</h2>
       <div class="field has-addons">
         <div class="control pr-1">
@@ -43,12 +43,12 @@
     (cdkDropListDropped)="drop($event)">
       <app-todo-item *ngFor="let todo of todos"
        [todo]="todo" 
+     
+       cdkDrag
        (todoClicked)="onTodoClicked(todo)"
        (editClicked)="onEditClicked(todo)"
        (deleteClicked)="onDeleteClicked(todo)"
-       cdkDrag
-       
-       >
+       >  
       </app-todo-item>
     </article>
   </div>

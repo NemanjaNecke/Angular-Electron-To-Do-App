@@ -45,13 +45,11 @@ export class AwesomeTooltipDirective implements OnInit {
   }
 
 
-
   @HostListener('click',['$event.target'])
     delete(){
       if(this.item !== null){
         this.overlayRef.dispose();
       }
       
-    }
-  
+    }  
 }
