@@ -2,14 +2,15 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
-const net = electron.remote.net;
+
 let win;
 function createWindow() {
   win = new BrowserWindow({titleBarStyle: 'hidden',
   titleBarOverlay:{
     color: 'rgb(170, 230, 250)',
     symbolColor: '#000'
-  }, width: 1600, height: 800 });
+  }, width: 1600, height: 800 ,
+}, );
   // load the dist folder from Angular
   win.loadURL(
     url.format({
