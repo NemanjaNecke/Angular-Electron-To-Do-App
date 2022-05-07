@@ -14,6 +14,7 @@ import { AwesomeTooltipDirective } from './tooltip/tooltip.directive';
 import { AwesomeTooltipComponent } from './tooltip/tooltip.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {  HttpClientModule } from '@angular/common/http';
 
 
 
@@ -34,6 +35,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     OverlayModule,
     BrowserAnimationsModule,
     DragDropModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,28 +1,33 @@
 import { Todo } from './todo.model';
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  baseUrl = "http://127.0.0.1:8000/todos/";
   todos: Todo[] = []; 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAllTodos () {
-    return this.todos;
+    return this.http.get(`${this.baseUrl}`);
   }
 
-  addTodo(todo:Todo) {
-    this.todos.push(todo);
+  get(id:any) {
+    return this.http.get(`${this.baseUrl}${id}/`);
   }
-
-  updateTodo(index:number, updatedTodo: Todo) {
-    this.todos[index] = updatedTodo;
+  create(data:any) {
+    return this.http.post<any>(this.baseUrl, data);
   }
-
-  deleteTodo(index:number) {
-    this.todos.splice(index, 1);
+  update(id:any, data:any) {
+    return this.http.put(`${this.baseUrl}${id}/`, data);
   }
+  delete(id:any) {
+    return this.http.delete(`${this.baseUrl}${id}/`);
+  }
+  deleteAll() {
+    return this.http.delete(this.baseUrl);
+  }
+ 
 }
